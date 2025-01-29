@@ -1,6 +1,11 @@
-const KEY =
-  "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";
+const http = require("http");
 
-const client = new OpenAI({
-  apiKey: KEY, // This is the default and can be omitted
+const server = http.createServer((req, res) => {
+  res.writeHead(200, { "Content-Type": "text/plain" });
+  res.end("Hello, world! Server is running on port 6789\n");
+});
+
+const PORT = 6789;
+server.listen(PORT, () => {
+  console.log(`Server is running at http://localhost:${PORT}`);
 });
